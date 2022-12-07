@@ -16,53 +16,12 @@
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
-  <%#= render "shared/productcard_drinks" %>
-  <div class="accordion" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
-    <% @categories.each do |category|%>
-      <div id="<%= category.name %>" class="accordion-item text-center">
-        <h2 class="test" id=<%=arr3[sum]%>>
-          <button class="categories-card rounded text-center collapsed <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : '' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key   %>')">
-            <%= category.name %>
-          </button>
-        </h2>
-        <div id=<%= arr2[sum]%> class="accordion-collapse collapse <% if @category.present? %><%= @category.name != category.name ? '' : 'show' %><% end%>" aria-labelledby=<%=arr3[sum]%>>
-          <div class="accordion-body">
-            <% category.products.each do |product| %>
-              <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price%>' data-product-table-value="<%= @table %>">
-                <div class="categories-drink-card">
-                  <div class="all-boxes">
-                    <%= cl_image_tag product.photo.key, class: 'drink-image'%>
-                    <div class="outer-drinks-card">
-                      <div class="d-flex justify-content-between">
-                        <div class="title">
-                          <h3 class="mb-0"><%= product.name %></h3>
-                        </div>
-                        <%= render partial: 'shared/stars_rating', locals: {product: product} %>
-                      </div>
-                      <div class="d-flex justify-content-between">
-                        <div class="description text-start">
-                          <p><%= product.description %></p>
-                        </div>
-                        <div class="order-button btn-color btn-product"><i class="fa-solid fa-plus fa-l margin-plus-favicon-drinks" data-action="click->product#updatecart click->cartcounter#updatecounter"></i>
-                        </div>
-                      </div>
-                      <div class=" align-bottom">
-                        <h3 class="price text-start"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u") %></h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <% sum += 1 %>
-      </div>
-    <% end %>
-    <div style="height: 15vh;">
-    </div>
-    <%= link_to cart_path, restaurant: @restaurant.id do %>
-      <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
+  <div class="accordion p-2 d-grid gap-3" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
+    <%= render partial: "categories_accordion", locals: { categories: @categories, table: @table} %>
+    <%= link_to cart_path, class: "btn btn-color pay-button sticky py-3" do %>
+      <strong>
+        View Cart<span data-cartcounter-target="output"></span>
+      </strong>
     <% end %>
   </div>
 </div>
