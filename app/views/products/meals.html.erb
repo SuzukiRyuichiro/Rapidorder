@@ -10,7 +10,7 @@
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
-  <div class="accordion p-2 d-grid gap-3" id="accordion" data-controller="cartcounter">
+  <div class="accordion p-2" data-controller="cartcounter">
     <%= render partial: "categories_accordion", locals: { categories: @categories, table: @table} %>
     <%= render partial: "cart_button" %>
   </div>

@@ -1,40 +1,46 @@
-<% categories.each do |category|%>
-  <div class="accordion-item text-center">
-    <button class="categories-card rounded text-center" type="button" data-bs-toggle="collapse" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key %>')">
-      <%= category.name %>
-    </button>
-    <div class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <% category.products.each do |product| %>
-          <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price %>' data-product-table-value="<%= table %>">
-            <div class="outer-meal-card d-flex" >
-              <div class="img-allergy">
-                <%= cl_image_tag product.photo.key, class: 'food-image'%>
-                <div class="allergies d-flex justify-content-around">
-                  <% product.allergies.each do |allergy| %>
-                    <img class="allergy-img" src=<%= allergy.url %>>
-                  <% end %>
+<div id="accordion" class="d-grid gap-3">
+  <% categories.each_with_index do |category, index|%>
+    <div class="accordion-item text-center">
+      <%# Button for collapse %>
+      <div id="heading_<%= index %>">
+        <button data-bs-toggle="collapse" data-bs-target="#category_<%= index %>" aria-expanded="true" aria-controls="category_<%= index %>" class="categories-card rounded text-center" type="button" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key %>')">
+          <%= category.name %>
+        </button>
+      </div>
+      <%# Body of the accordion %>
+      <div id="category_<%= index %>" data-bs-parent="#accordion" aria-labelledby="heading_<%= index %>" class="accordion-collapse collapse <%= 'show' if index == 1 %>" >
+        <div class="accordion-body">
+          <% category.products.each do |product| %>
+            <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price %>' data-product-table-value="<%= table %>">
+              <div class="outer-meal-card d-flex" >
+                <div class="img-allergy">
+                  <%= cl_image_tag product.photo.key, class: 'food-image'%>
+                  <div class="allergies d-flex justify-content-around">
+                    <% product.allergies.each do |allergy| %>
+                      <img class="allergy-img" src=<%= allergy.url %>>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
-              <div class="half-card text-start">
-                <div>
-                  <%= render partial: 'shared/stars_rating', locals: {product: product} %>
-                  <h3 class="title"><%= product.name %></h3 >
-                </div>
-                <div class="description">
-                  <p><%= product.description %></p>
-                </div>
-                <div class="price-button d-flex justify-content-between align-bottom">
-                  <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u")%></p>
-                  <div class="order-button btn-color btn-product">
-                    <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
+                <div class="half-card text-start">
+                  <div>
+                    <%= render partial: 'shared/stars_rating', locals: {product: product} %>
+                    <h3 class="title"><%= product.name %></h3 >
+                  </div>
+                  <div class="description">
+                    <p><%= product.description %></p>
+                  </div>
+                  <div class="price-button d-flex justify-content-between align-bottom">
+                    <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u")%></p>
+                    <div class="order-button btn-color btn-product">
+                      <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

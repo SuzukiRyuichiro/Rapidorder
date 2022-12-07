@@ -1,9 +1,3 @@
-<link href="dist/css/star-rating.min.css" rel="stylesheet">
-<% sum = 0 %>
-<% arr = ["#panelsStayOpen-collapseOne", "#panelsStayOpen-collapseTwo", "#panelsStayOpen-collapseThree", "#panelsStayOpen-collapseFour", "#panelsStayOpen-collapseFive", "#panelsStayOpen-collapseSix", "#panelsStayOpen-collapseSeven", "#panelsStayOpen-collapseEight",] %>
-<% arr2 = ["panelsStayOpen-collapseOne", "panelsStayOpen-collapseTwo", "panelsStayOpen-collapseThree", "panelsStayOpen-collapseFour", "panelsStayOpen-collapseFive", "panelsStayOpen-collapseSix", "panelsStayOpen-collapseSeven", "panelsStayOpen-collapseEight",] %>
-<% arr3 = ["panelsStayOpen-headingOne", "panelsStayOpen-headingTwo", "panelsStayOpen-headingThree", "panelsStayOpen-headingFour", "panelsStayOpen-headingFive", "panelsStayOpen-headingSix", "panelsStayOpen-headingSeven", "panelsStayOpen-headingEight",] %>
-<link href="dist/css/star-rating.min.css" rel="stylesheet">
 <div class="wrapper">
   <div class="placeholder-top"></div>
   <div class="product-title d-flex justify-content-between p-2">
@@ -18,10 +12,6 @@
   </div>
   <div class="accordion p-2 d-grid gap-3" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
     <%= render partial: "categories_accordion", locals: { categories: @categories, table: @table} %>
-    <%= link_to cart_path, class: "btn btn-color pay-button sticky py-3" do %>
-      <strong>
-        View Cart<span data-cartcounter-target="output"></span>
-      </strong>
-    <% end %>
+    <%= render partial: "cart_button" %>
   </div>
 </div>
