@@ -1,51 +1,50 @@
 .meals-container {
-  border: solid 1px black;
-  width: calc(100% / 1.5);
-  height: 100%;
+	border: solid 1px black;
+	width: calc(100% / 1.5);
+	height: 100%;
 }
 
 .drinks-container {
-  border: solid 1px black;
-  width: calc(100% / 3);
-  height: 100%;
+	border: solid 1px black;
+	width: calc(100% / 3);
+	height: 100%;
 }
 
 .rows-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 90%;
-  overflow: scroll;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 90%;
+	overflow: scroll;
 }
-
 
 .width-100 {
-  width: 100% !important;
-  margin: 0 !important;
+	width: 100% !important;
+	margin: 0 !important;
 }
 
-.img-height{
- height: 11vh;
+.img-height {
+	height: 11vh;
 }
 
 .sticky {
-  position: sticky;
-  bottom: 0;
+	position: sticky;
+	bottom: 1rem;
 }
 
 .project-red {
-  background-color: $project-red;
-  width: 100%;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  text-align: center;
+	background-color: $project-red;
+	width: 100%;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	text-align: center;
 }
 
 .order-card {
-  padding: 4%;
+	padding: 4%;
 }
 
 .order-column {
-  margin: 2%;
-  width: 30%;
+	margin: 2%;
+	width: 30%;
 }

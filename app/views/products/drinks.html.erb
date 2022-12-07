@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <div class="accordion p-2 d-grid gap-3" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
-    <%= render partial: "categories_accordion", locals: { categories: @categories, table: @table} %>
+    <%= render partial: "categories_accordion", locals: { categories: @categories, table: @table, anchor: "Tapas"} %>
     <%= render partial: "cart_button" %>
   </div>
 </div>

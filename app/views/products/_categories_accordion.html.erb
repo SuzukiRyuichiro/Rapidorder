@@ -8,32 +8,32 @@
         </button>
       </div>
       <%# Body of the accordion %>
-      <div id="category_<%= index %>" data-bs-parent="#accordion" aria-labelledby="heading_<%= index %>" class="accordion-collapse collapse <%= 'show' if index == 1 %>" >
-        <div class="accordion-body">
+      <div id="category_<%= index %>" data-bs-parent="#accordion" aria-labelledby="heading_<%= index %>" class="accordion-collapse collapse <%= 'show' if category.name == anchor %>" >
+        <div class="accordion-body d-grid gap-2">
           <% category.products.each do |product| %>
-            <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price %>' data-product-table-value="<%= table %>">
-              <div class="outer-meal-card d-flex" >
-                <div class="img-allergy">
-                  <%= cl_image_tag product.photo.key, class: 'food-image'%>
-                  <div class="allergies d-flex justify-content-around">
-                    <% product.allergies.each do |allergy| %>
-                      <img class="allergy-img" src=<%= allergy.url %>>
-                    <% end %>
-                  </div>
+            <div class="rounded p-2 bg-white d-flex gap-2"data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price %>' data-product-table-value="<%= table %>" id="<%= category.name %>">
+              <div class="img-allergy d-grid gap-2 flex-grow-1">
+                <div class="ratio ratio-1x1">
+                  <%= cl_image_tag product.photo.key, class: 'food-image rounded'%>
                 </div>
-                <div class="half-card text-start">
-                  <div>
-                    <%= render partial: 'shared/stars_rating', locals: {product: product} %>
-                    <h3 class="title"><%= product.name %></h3 >
-                  </div>
-                  <div class="description">
-                    <p><%= product.description %></p>
-                  </div>
-                  <div class="price-button d-flex justify-content-between align-bottom">
-                    <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u")%></p>
-                    <div class="order-button btn-color btn-product">
-                      <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
-                    </div>
+                <div class="d-flex justify-content-around">
+                  <% product.allergies.each do |allergy| %>
+                    <img class="allergy-img" src=<%= allergy.url %>>
+                  <% end %>
+                </div>
+              </div>
+              <div class="half-card flex-shrink-0  flex-grow-1 text-start">
+                <div>
+                  <%= render partial: 'shared/stars_rating', locals: {product: product} %>
+                  <h3 class="title"><%= product.name %></h3 >
+                </div>
+                <div class="description">
+                  <p><%= product.description %></p>
+                </div>
+                <div class="price-button d-flex justify-content-between align-bottom">
+                  <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u")%></p>
+                  <div class="order-button btn-color btn-product">
+                    <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
                   </div>
                 </div>
               </div>
