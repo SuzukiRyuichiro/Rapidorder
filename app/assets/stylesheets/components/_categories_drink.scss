@@ -1,77 +1,71 @@
-.drink-image{
-  height: 12vh;
-  width: 12vh;
-  border-radius: 10px;
+.drink-image {
+	height: 12vh;
+	width: 12vh;
+	border-radius: 10px;
 }
 
 .outer-drinks-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  padding: 1vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+	padding: 1vh;
 }
 
-
-.test{
-  width: 100vw;
-  margin: auto;
+.rating p {
+	font-size: 15px;
 }
 
-.rating p{
-  font-size: 15px;
-}
-
-.categories-drink-card{
-  width: 90%;
-  max-height: 15vh;
-  border-radius: 10px;
-  margin: auto;
-  margin-top: 1.8vh;
+.categories-drink-card {
+	width: 90%;
+	max-height: 15vh;
+	border-radius: 10px;
+	margin: auto;
+	margin-top: 1.8vh;
 }
 
 .box1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 .box1 h2 {
-  padding-bottom: 7px;
+	padding-bottom: 7px;
 }
 .box1 p {
-  font-size: xx-small;
-  width: 72px;
-  margin-right: 15px;
+	font-size: xx-small;
+	width: 72px;
+	margin-right: 15px;
 }
 
 .all-boxes {
-  display: flex;
-  background-color: white;
-  border-radius: 10px;
+	display: flex;
+	background-color: white;
+	border-radius: 10px;
 }
 
 .box3 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 3vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 3vh;
 }
 
 .p-beer p {
-  text-align: start!important;
+	text-align: start !important;
 }
 
 .description p {
-  margin-bottom: 0;
-  max-width: 50vw;
+	margin-bottom: 0;
+	max-width: 50vw;
 }
 
 .margin-plus-favicon-drinks {
-  padding-top: 26%;
-    padding-left: 7%;
+	padding-top: 26%;
+	padding-left: 7%;
 }
 
 .add-btn {
-  height: 27px;
-  width: 27px;
+	height: 27px;
+	width: 27px;
 }

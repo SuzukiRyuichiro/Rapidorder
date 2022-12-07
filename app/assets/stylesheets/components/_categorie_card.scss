@@ -1,11 +1,10 @@
-.categories-card{
-  height: 17vh;
-  width: 95vw;
-  margin-top: 2.5vh;
-  border: solid 0 black !important;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  font-weight: bold;
+.categories-card {
+	border: solid 0 black !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: white;
+	font-weight: bold;
+	min-width: 100%;
+	padding: 4rem 2rem;
 }
